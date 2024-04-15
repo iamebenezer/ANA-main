@@ -38,15 +38,62 @@
   }
 }
       </style>
-     <nav class="bg-black flex px-8 justify-between items-center">
-      <div>
-        <img src="/images/Robo-trans1-tiny.png" class="w-12" alt="">
-      </div>
-      <div>
-        <a href="index.html" class="text-white">Home</a>
-      </div>
-     </nav>
+   <style>
+    /* Optional custom styles */
+    .active-link {
+        @apply text-blue-500;
+    }
+</style>
 
+<nav class="bg-black text-white">
+    <div class="container mx-auto px-4 py-2 flex items-center justify-between">
+        <div>
+            <a href="#" class="text-lg font-semibold">
+              <img src="/images/Robo-trans1-tiny.png" class="w-12" alt="">
+            </a>
+        </div>
+        <div class="hidden md:flex items-center space-x-4">
+            <a href="#" class="nav-link">Home</a>
+            <a href="#" class="nav-link">PLAY TO EARN</a>
+            <a href="#" class="nav-link">MINE</a>
+            
+        </div>
+        <div class="md:hidden">
+            <button id="mobile-menu-toggle" class="text-xl focus:outline-none">
+                <svg class="h-6 w-6 fill-current" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" d="M3 5h18a1 1 0 1 1 0 2H3a1 1 0 1 1 0-2zm0 6h18a1 1 0 1 1 0 2H3a1 1 0 1 1 0-2zm0 6h18a1 1 0 1 1 0 2H3a1 1 0 1 1 0-2z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <!-- Mobile menu (hidden by default) -->
+    <div id="mobile-menu" class="md:hidden hidden bg-black">
+        <a href="#" class="block py-2 px-4 nav-link">Home</a>
+        <a href="#" class="block py-2 px-4 nav-link">PLAY TO EARN</a>
+        <a href="#" class="block py-2 px-4 nav-link">MINE</a>
+ 
+    </div>
+</nav>
+
+<script>
+    // JavaScript for toggling mobile menu
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // JavaScript for highlighting active link
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.forEach(navLink => navLink.classList.remove('active-link'));
+            link.classList.add('active-link');
+        });
+    });
+</script>
     
             <section class="bg-[url(./images/bg-2.jpeg)]  flex justify-center items-center bg-no-repeat bg-cover h-screen w-screen">
                         <h1 style="font-family: head;" class="text-[60px] text-white text-center neon-text" 
